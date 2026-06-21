@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 import os
 from glob import glob
 
-package_name = 'command_listener'
+package_name = 'decider'
 
 setup(
     name=package_name,
@@ -16,7 +16,7 @@ setup(
         ('share/' + package_name, ['package.xml']),
         (os.path.join('share', package_name, 'launch'), glob('launch/*.launch.py')),
         # (os.path.join('share', package_name, 'config'), glob('config/*.yaml')),
-        # (os.path.join('share', package_name, 'model_weight'), glob('model_weight/*')),
+        (os.path.join('share', package_name, 'model_weight'), glob('model_weight/*')),
     ],
     install_requires=['setuptools', 'numpy'],
     zip_safe=True,
@@ -29,7 +29,7 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            'command_listener = command_listener.main:main',
+            'decider = decider.main:main',
         ],
     },
 )
